@@ -1,0 +1,44 @@
+PYTHON KURSU — DERS 1–29 PAKETİ
+========================================
+
+kod/              Her dersin .py dosyası (VS Code'da '# %%' hücreleriyle çalışır) ve yardımcı dosyalar
+veri/             Ders 21–24 ve 29'un veri dosyaları
+sunumlar_pdf/     Ders 1–29 sunumlarının PDF hali (1920×1080, konuşmacı notları hariç)
+django_projeleri/ Ders 26, 27, 28 sonundaki blog projeleri (veritabanı hariç: migrate + createsuperuser ile başlatın)
+
+NOT: Ders 23 ve sonrası bazı .py dosyaları ilgili veri dosyasını aynı klasörde bekler
+     (ör. ev_ilanlari_temiz.csv). veri/dersNN_veri içindekileri .py ile aynı klasöre kopyalayın.
+
+SUNUMLARIN ÇEVRİMİÇİ HALİ (konuşmacı notlarıyla; sayfadan .pptx olarak da indirilebilir):
+
+Ders 01: https://claude.ai/artifact/BBzVmGRvigTzCJJoMzTfZk
+Ders 02: https://claude.ai/artifact/1Y7qmcgxARFEdzScVuf64D
+Ders 03: https://claude.ai/artifact/EvGnfTNV8VPovtuYsMkUrJ
+Ders 04: https://claude.ai/artifact/P56VdYpdbx7GRV4okBDgN3
+Ders 05: https://claude.ai/artifact/LhXnNutj1Z98YPFQ2Ez3eq
+Ders 06: https://claude.ai/artifact/SW33oPS9HKoAwxbjQPpkjE
+Ders 07: https://claude.ai/artifact/4pPrTKwMnWvD7E8vnHLxRm
+Ders 08: https://claude.ai/artifact/9iFjPz1Qfc6WzX942bEwUL
+Ders 09: https://claude.ai/artifact/1ziFSsqP33jfZ7AGHdHTBN
+Ders 10: https://claude.ai/artifact/HHSowHmCU4MCwj2QxesSTL
+Ders 11: https://claude.ai/artifact/NvTwTsBAKyYrTEJzXeV2sv
+Ders 12: https://claude.ai/artifact/AKND5zFJNpi2Tfdytc4Na9
+Ders 13: https://claude.ai/artifact/G4PdmvH1oKtHV1EaK2g9bH
+Ders 14: https://claude.ai/artifact/HGPKQqi8fruJQjTc5tFChR
+Ders 15: https://claude.ai/artifact/XrchW7TaQxfVpdmHY6xRax
+Ders 16: https://claude.ai/artifact/5cfyqwnNm3LX5LAYgkWPnF
+Ders 17: https://claude.ai/artifact/1x6JkKTC4zNu4PnQd7QZwg
+Ders 18: https://claude.ai/artifact/LmR96g5GMZWr1Xs3e7aqjN
+Ders 19: https://claude.ai/artifact/HUGiwj43Mu9CQRmN7RVfEZ
+Ders 20: https://claude.ai/artifact/EmDK5TzTFRMDTJmETpq1Eb
+Ders 21: https://claude.ai/artifact/UhkTsPnfZK5Ed1cEquEa5o
+Ders 22: https://claude.ai/artifact/EeRL3GHsEbHNnCKzgVKNdH
+Ders 23: https://claude.ai/artifact/Sp9f2LctoeWd9nsAcP341Q
+Ders 24: https://claude.ai/artifact/NFzwMq2KZrCWfJx7y2ZLKh
+Ders 25: https://claude.ai/artifact/3sPC1uBa5JswZ7aWNRKZJK
+Ders 26: https://claude.ai/artifact/AdUJwpf3FXUyv1pMfpHKsn
+Ders 27: https://claude.ai/artifact/GEtSewSUFhsgHzi9X6iPqY
+Ders 28: https://claude.ai/artifact/Lkkty2dxaY1NTRauCNvZEq
+Ders 29: https://claude.ai/artifact/XsjmGazgrynMRL79m3GVpw
+
+Ders 30–32 henüz hazırlanmadı (Ders 30 yarım).
