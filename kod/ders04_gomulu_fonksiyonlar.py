@@ -224,3 +224,25 @@ print(f"Ortanca                : {sirali[len(notlar) // 2]}")
 notlar = [78, 92, 65]
 notlar.append(100)         # listeye eleman ekleyen bir METOT
 print(notlar)              # [78, 92, 65, 100]
+
+
+# %% Ek — Yuvarlama: round, ceil ve floor
+# round() en yakın değere yuvarlar; tam .5 durumunda çift olanı seçer.
+print(round(2.5))          # 2 -> 2 ile 3 arasındaki çift sayı
+print(round(3.5))          # 4 -> 3 ile 4 arasındaki çift sayı
+
+# Pozitif sayılarda .5 ve üzeri yukarı, .5'in altı aşağı yuvarlansın:
+# math.floor(sayı + 0.5) bu kuralı uygular.
+import math
+print(math.floor(2.49 + 0.5))  # 2 -> .5'in altı aşağı
+print(math.floor(2.5 + 0.5))   # 3 -> .5 dahil ve üstü yukarı
+print(math.floor(2.8 + 0.5))   # 3
+# Bu formül burada pozitif sayılar içindir; negatif sayılarda farklı sonuç verir.
+
+# ceil: sayıyı kendisinden büyük ya da eşit en yakın tam sayıya çıkarır.
+# floor: sayıyı kendisinden küçük ya da eşit en yakın tam sayıya indirir.
+# Ondalık kısım olmasa da sonuç tam sayıdır; yönler sayı doğrusuna göredir.
+print(math.ceil(2.1))      # 3
+print(math.ceil(-2.1))     # -2 -> sıfıra doğru, sayı doğrusunda yukarı
+print(math.floor(2.9))     # 2
+print(math.floor(-2.1))    # -3 -> sıfırdan uzağa, sayı doğrusunda aşağı
