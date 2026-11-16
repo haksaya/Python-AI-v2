@@ -32,16 +32,37 @@ print(len("İstanbul"))           # 8
 # %% Bölüm 3 — Sayılarla çalışan fonksiyonlar: abs, round, pow, divmod
 print(abs(-7))                   # 7     -> mutlak değer
 print(abs(3.5))                  # 3.5
-print(round(3.14159, 2))         # 3.14  -> 2 basamağa yuvarla
-print(round(3.7))                # 4     -> basamak verilmezse tam sayıya
+
+# round(sayı, basamak): sayıyı en yakın değere yuvarlar.
+# İkinci argüman kaç ondalık basamak kalacağını belirtir.
+print(round(3.14159, 2))         # 3.14  -> virgülden sonra 2 basamak
+print(round(3.7))                # 4     -> basamak verilmezse en yakın tam sayı
+print(round(3.2))                # 3
 print(round(1234.5678, -2))      # 1200.0 -> negatif basamak: yüzlere yuvarla
+
+# Önemli: Python'da tam .5 durumunda her zaman yukarı yuvarlanmaz.
+# En yakın ÇİFT sayıya yuvarlar (banker's rounding / çifte yuvarlama).
+print(round(2.5))                # 2 -> 2 ve 3 eşit uzaklıkta; çift olan 2 seçilir
+print(round(3.5))                # 4 -> 3 ve 4 eşit uzaklıkta; çift olan 4 seçilir
+print(round(0.5))                # 0 -> 0 ve 1 eşit uzaklıkta; çift olan 0 seçilir
+
+# Normal yuvarlama kuralını istiyorsanız (pozitif sayılarda):
+# .5 ve üzeri yukarı, .5'in altı aşağı yuvarlanır.
+# math.floor(sayı + 0.5) bu kuralı pozitif sayılara uygular.
+import math
+print(math.floor(2.49 + 0.5))    # 2 -> .5'in altı aşağı
+print(math.floor(2.5 + 0.5))     # 3 -> .5 dahil ve üstü yukarı
+print(math.floor(2.8 + 0.5))     # 3
+# Bu kısa yöntem negatif sayılar için aynı kuralı vermez; burada pozitif
+# sayılarla örneklenmiştir.
+
+# Her zaman yukarı/aşağı yuvarlamak için ceil ve floor kullanılabilir.
+# Bunlar en yakına bakmaz: ceil daima yukarı, floor daima aşağı gider.
+print(math.ceil(2.1))            # 3 -> yukarı (tavana)
+print(math.floor(2.9))           # 2 -> aşağı (tabana)
+
 print(pow(2, 10))                # 1024  -> 2 ** 10 ile aynı
 print(divmod(17, 5))             # (3, 2) -> (17 // 5, 17 % 5) birlikte
-
-# Yuvarlama sürprizi (Ders 3'teki kuralın aynısı): tam ortada ÇİFTE yuvarlar
-print(round(2.5))                # 2  (3 değil!)
-print(round(3.5))                # 4
-print(round(0.5))                # 0
 
 
 # %% Bölüm 4 — Bir grup değerle çalışan fonksiyonlar: min, max, sum, len
