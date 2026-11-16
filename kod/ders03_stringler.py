@@ -185,24 +185,83 @@ print(f"{'Baş harfler':<12}: {bas_harfler}")
 
 
 # %% Uygulama 2 — Hizalı kafe fişi ve Türk lirası biçimi
-urun1, adet1, fiyat1 = "Türk kahvesi", 2, 85
+
+# --- 1) Veriler ---
+# Birden fazla değişkene tek satırda değer atama (çoklu atama / tuple unpacking).
+# Sıra önemlidir: soldaki 1. değişken sağdaki 1. değeri alır, 2. değişken 2. değeri alır...
+urun1, adet1, fiyat1 = "Türk kahvesi", 2, 85        # ürün adı (str), adet (int), birim fiyat (int)
 urun2, adet2, fiyat2 = "Simit", 1, 30
 urun3, adet3, fiyat3 = "Doğum günü pastası", 1, 950
 
-tutar1 = adet1 * fiyat1
-tutar2 = adet2 * fiyat2
-tutar3 = adet3 * fiyat3
-toplam = tutar1 + tutar2 + tutar3
+# --- 2) Hesaplamalar ---
+# Her satırın tutarı = adet × birim fiyat
+tutar1 = adet1 * fiyat1      # 2 * 85  = 170
+tutar2 = adet2 * fiyat2      # 1 * 30  = 30
+tutar3 = adet3 * fiyat3      # 1 * 950 = 950
+toplam = tutar1 + tutar2 + tutar3   # 170 + 30 + 950 = 1150
 
+# --- 3) Fişin başlık satırı ---
+# f-string içinde {değer:biçim} yazılır. İki noktadan (:) sonrası "biçim belirteci"dir.
+#   <  : sola hizala  (metin sola yaslanır, kalan boşluk SAĞA eklenir)
+#   >  : sağa hizala  (metin sağa yaslanır, kalan boşluk SOLA eklenir)
+#   ^  : ortala       (bu kodda kullanılmadı ama aynı mantık)
+#   Sayı: alanın toplam genişliği (kaç karakterlik yer ayrılacağı)
+#
+# {'Ürün':<20}  -> "Ürün" yazısını 20 karakterlik alana SOLA yaslı yaz
+# {'Adet':>5}   -> "Adet" yazısını 5 karakterlik alana SAĞA yaslı yaz
+# {'Tutar':>12} -> "Tutar" yazısını 12 karakterlik alana SAĞA yaslı yaz
+# Toplam genişlik: 20 + 5 + 12 = 37 karakter
+# Not: Süslü parantez içinde tek tırnak kullanıldı çünkü f-string çift tırnakla açıldı.
 print(f"{'Ürün':<20}{'Adet':>5}{'Tutar':>12}")
+
+# "-" * 37 -> tire karakterini 37 kez tekrarlar; başlık genişliğiyle aynı uzunlukta çizgi çizer
 print("-" * 37)
+
+# --- 4) Ürün satırları ---
+# {urun1:<20}    -> ürün adını 20 karakterlik alana sola yaslı yaz (metinler genelde sola yaslanır)
+# {adet1:>5}     -> adedi 5 karakterlik alana sağa yaslı yaz (sayılar genelde sağa yaslanır,
+#                   böylece basamaklar alt alta düzgün hizalanır)
+# {tutar1:>12.2f}-> tutarı 12 karakterlik alana sağa yaslı yaz
+#                   .2f : "f" = ondalıklı sayı (float) biçimi, ".2" = virgülden sonra 2 basamak
+#                   Örn. 170 -> "170.00"
 print(f"{urun1:<20}{adet1:>5}{tutar1:>12.2f}")
 print(f"{urun2:<20}{adet2:>5}{tutar2:>12.2f}")
 print(f"{urun3:<20}{adet3:>5}{tutar3:>12.2f}")
 print("-" * 37)
 
+# --- 5) Toplamı Türk lirası biçimine çevirme ---
+# Python varsayılan olarak İngilizce biçim kullanır:  1,150.00  (binlik ayırıcı ",", ondalık ".")
+# Türkçede ise tam tersi:                            1.150,00  (binlik ayırıcı ".", ondalık ",")
+#
+# f"{toplam:,.2f}" -> ","  : binlik ayırıcı ekle
+#                     ".2f": 2 ondalık basamaklı float
+#                     Sonuç: "1,150.00"
+#
+# Ardından üç adımlı yer değiştirme (replace) yapılır:
+#   .replace(",", "#")  -> "1#150.00"  (virgülleri geçici olarak # yap)
+#   .replace(".", ",")  -> "1#150,00"  (noktayı virgül yap -> ondalık ayırıcı)
+#   .replace("#", ".")  -> "1.150,00"  (# işaretlerini nokta yap -> binlik ayırıcı)
+# Neden "#" kullanıldı? Doğrudan virgülü noktaya çevirseydik, sonra noktaları virgüle
+# çevirirken az önce oluşturduğumuz noktalar da virgül olurdu. "#" geçici bir yer tutucudur.
 toplam_tr = f"{toplam:,.2f}".replace(",", "#").replace(".", ",").replace("#", ".")
+
+# --- 6) Toplam satırı ---
+# {'TOPLAM':<25} -> "TOPLAM" yazısını 25 karakterlik alana sola yaslı yaz
+# {toplam_tr:>12}-> "1.150,00" metnini 12 karakterlik alana sağa yaslı yaz
+# 25 + 12 = 37 -> üstteki satırlarla aynı genişlik, böylece tutar sütunuyla hizalanır
+#                 (20 + 5 = 25: ürün ve adet sütunlarının toplam genişliği)
+# Sona " TL" eklenerek para birimi gösterilir.
+# Not: toplam_tr artık bir metin (str) olduğu için burada .2f kullanılmaz.
 print(f"{'TOPLAM':<25}{toplam_tr:>12} TL")
+
+# Beklenen çıktı:
+# Ürün                 Adet       Tutar
+# -------------------------------------
+# Türk kahvesi            2      170.00
+# Simit                   1       30.00
+# Doğum günü pastası      1      950.00
+# -------------------------------------
+# TOPLAM                       1.150,00 TL
 
 
 # =============================================================================
