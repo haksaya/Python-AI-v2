@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ödev: Mini Öğrenci Bilgi Sistemi</title>
+  <style>
+    @page { size: A4; margin: 18mm; }
+    * { box-sizing: border-box; }
+    body { font-family: Arial, Helvetica, sans-serif; color: #172033; line-height: 1.55; max-width: 850px; margin: 0 auto; padding: 28px; }
+    header { border-bottom: 3px solid #2563eb; padding-bottom: 16px; margin-bottom: 24px; }
+    .label { color: #2563eb; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+    h1 { margin: 5px 0 0; font-size: 30px; color: #14213d; }
+    h2 { font-size: 19px; margin: 24px 0 8px; color: #1d4ed8; }
+    p { margin: 8px 0; }
+    ul, ol { padding-left: 24px; }
+    li { margin: 4px 0; }
+    .intro { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 12px 16px; border-radius: 4px; }
+    .example { background: #f3f4f6; border: 1px solid #d1d5db; border-radius: 6px; padding: 12px 16px; font-family: Consolas, monospace; white-space: pre-wrap; line-height: 1.45; }
+    code { background: #eef2ff; padding: 1px 5px; border-radius: 3px; font-family: Consolas, monospace; }
+    table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+    th, td { border: 1px solid #cbd5e1; padding: 8px 10px; text-align: left; }
+    th { background: #eff6ff; }
+    td:last-child, th:last-child { text-align: right; width: 90px; }
+    .bonus { border: 1px solid #fbbf24; background: #fffbeb; padding: 12px 16px; border-radius: 5px; }
+    footer { border-top: 1px solid #cbd5e1; margin-top: 30px; padding-top: 10px; color: #64748b; font-size: 12px; }
+    @media print { body { padding: 0; max-width: none; } h2 { break-after: avoid; } .example, table, .bonus { break-inside: avoid; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="label">Python Programlama Ödevi</div>
+    <h1>Mini Öğrenci Bilgi Sistemi</h1>
+  </header>
+
+  <p class="intro"><strong>Amaç:</strong> Kullanıcıdan öğrenci bilgilerini alan, metinleri düzenleyen ve bilgileri okunaklı bir kart biçiminde ekrana yazdıran bir Python programı hazırlayın.</p>
+
+  <h2>Programın İstediği Bilgiler</h2>
+  <p>Program çalıştığında kullanıcıdan aşağıdaki bilgileri sırayla alın:</p>
+  <ol>
+    <li>Öğrencinin adı</li>
+    <li>Öğrencinin soyadı</li>
+    <li>Öğrenci numarası</li>
+    <li>Sınıfı</li>
+    <li>Yaşı</li>
+    <li>En sevdiği dersler (virgülle ayrılmış olarak)</li>
+  </ol>
+
+  <p><strong>Örnek giriş:</strong></p>
+  <div class="example">Ad: Ayşe
+Soyad: Yılmaz
+Öğrenci No: 20260045
+Sınıf: 10-A
+Yaş: 16
+Dersler: Matematik, Fizik, İngilizce</div>
+
+  <h2>Yapılacaklar</h2>
+  <ol>
+    <li>Tüm bilgileri <code>input()</code> ile kullanıcıdan alın.</li>
+    <li>Öğrenci numarasını metin olarak saklayın; yaşı tam sayıya dönüştürün.</li>
+    <li>Ad ve soyadı uygun biçime getirin: ilk harf büyük, kalan harfler küçük olsun.</li>
+    <li>Ders listesini virgüllerden ayırın ve her ders adının başındaki/sonundaki boşlukları temizleyin.</li>
+    <li>Öğrenci bilgilerini aşağıdaki örneğe benzer, düzenli bir kart olarak yazdırın.</li>
+    <li>Adın ve soyadın karakter sayısını, ad-soyadın birleşik hâlini ve soyadın büyük harfli hâlini de gösterin.</li>
+    <li>Öğrenci numarasını ekrana yazdırmadan önce başındaki ve sonundaki boşlukları temizleyin.</li>
+  </ol>
+
+  <h2>Örnek çıktı biçimi</h2>
+  <div class="example">========================================
+          ÖĞRENCİ BİLGİ KARTI
+========================================
+Ad Soyad     : Ayşe Yılmaz
+Öğrenci No   : 20260045
+Sınıf        : 10-A
+Yaş          : 16
+==============================
+EN SEVİLEN DERSLER
+1. Matematik
+2. Fizik
+3. İngilizce
+========================================</div>
+  <p>Örnek çıktıya ek olarak istenen karakter sayısı ve metin işlemlerini de programınızda gösterin.</p>
+
+  <h2>Kullanılması gereken Python araçları</h2>
+  <p><code>input()</code>, <code>int()</code>, <code>str()</code> veya f-string, <code>title()</code> veya <code>capitalize()</code>, <code>upper()</code>, <code>lower()</code>, <code>strip()</code>, <code>split()</code> ve <code>len()</code>.</p>
+
+  <h2>Teslim edilecekler</h2>
+  <ul>
+    <li>Python kaynak dosyası: <code>ogrenci_bilgi_sistemi.py</code></li>
+    <li>Programın çalışmasını gösteren bir terminal ekran görüntüsü</li>
+    <li>Programın nasıl çalıştığını kısaca açıklayan bir not</li>
+  </ul>
+
+  <h2>Değerlendirme</h2>
+  <table>
+    <thead><tr><th>Ölçüt</th><th>Puan</th></tr></thead>
+    <tbody>
+      <tr><td>Tüm bilgilerin kullanıcıdan alınması</td><td>15</td></tr>
+      <tr><td>Yaşın tam sayıya dönüştürülmesi</td><td>10</td></tr>
+      <tr><td>Ad ve soyadın düzenlenmesi</td><td>15</td></tr>
+      <tr><td>Derslerin ayrıştırılması ve biçimlendirilmesi</td><td>20</td></tr>
+      <tr><td>Bilgi kartının düzenli yazdırılması</td><td>20</td></tr>
+      <tr><td>İstenen ek metin işlemlerinin uygulanması</td><td>15</td></tr>
+      <tr><td>Kodun okunabilir ve hatasız çalışması</td><td>5</td></tr>
+      <tr><th>Toplam</th><th>100</th></tr>
+    </tbody>
+  </table>
+
+  <h2>Bonus — 10 puan</h2>
+  <div class="bonus">Ad, soyad veya ders alanlarından biri boş bırakılırsa kullanıcıya <strong>“Bu alan boş bırakılamaz!”</strong> mesajını gösterin.</div>
+
+  <footer>Başarılar! Kodunuzu teslim etmeden önce farklı örnek bilgilerle çalıştırıp kontrol edin.</footer>
+</body>
+</html>
